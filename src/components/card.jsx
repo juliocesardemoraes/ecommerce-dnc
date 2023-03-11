@@ -1,11 +1,15 @@
 import { useState } from "react";
 
-function Card({ image, name }) {
+function Card({ image, name, button = true, setModal = null }) {
   return (
     <div className="card">
       <img src={image}></img>
       <h3>{name}</h3>
-      <button>Adicionar</button>
+      {button ? (
+        <button onClick={() => setModal({ image, name })}>Adicionar</button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
